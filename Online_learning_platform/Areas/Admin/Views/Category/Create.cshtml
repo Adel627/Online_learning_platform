@@ -1,0 +1,35 @@
+﻿
+<h1>Creat</h1>
+@model Categories
+
+
+<form asp-action="Create" method="post">
+    <label>Name</label>
+    <input asp-for="Name" class="form-control" /> <br />
+
+<!--    <label>image</label>
+    <input asp-for="Image" class="form-control" /> <br />-->
+
+    <div>
+        <input type="file"  onchange="loadFile(event)" />
+        <img id="myImg" height="200" />
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Add</button>
+</form>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        var loadFile = function (event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var myImg = document.getElementById('myImg');
+                myImg.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}

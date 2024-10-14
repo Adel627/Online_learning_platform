@@ -1,0 +1,22 @@
+﻿
+
+@model Categories
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+
+<form asp-action="Edit" method="post">
+    <label>Name</label>
+    <input asp-for="Name" class="form-control" /> <br />
+
+    <label>Title</label>
+    <input asp-for="Img" class="form-control" /> <br />
+
+  
+    <center>
+        <button type="submit" class="btn btn-info">Update</button>
+    </center>
+</form>
