@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Online_learning_platform.Areas.Admin.Repositores;
 using Online_learning_platform.Data;
 using Online_learning_platform.Models;
+using Online_learning_platform.Repositores;
 
 namespace Online_learning_platform
 {
@@ -29,6 +30,10 @@ namespace Online_learning_platform
                <CourseRepository>();
             builder.Services.AddScoped
               <LessonRepository>();
+            builder.Services.AddScoped
+           <CategoryRepository>();
+            builder.Services.AddScoped
+            <lessonRepository>();
 
             builder.Services.AddIdentity
              <ApplicationUser, IdentityRole>()
