@@ -32,6 +32,7 @@ namespace Online_learning_platform
 
             builder.Services.AddIdentity
              <ApplicationUser, IdentityRole>()
+               .AddRoles<IdentityRole>()
            .AddEntityFrameworkStores<ApplicationDbContext>();
 
             var app = builder.Build();

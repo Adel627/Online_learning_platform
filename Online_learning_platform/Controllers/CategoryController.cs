@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Online_learning_platform.Data;
+using Online_learning_platform.Models;
 using Online_learning_platform.ViewModels;
 
 namespace Online_learning_platform.Controllers
 {
+   
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;

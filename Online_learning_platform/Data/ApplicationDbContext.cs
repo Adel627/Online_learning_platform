@@ -21,7 +21,7 @@ namespace Online_learning_platform.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(builder);
+           
 
             builder.Entity<Categories>().
                 HasMany(c => c.Courses).
@@ -33,9 +33,6 @@ namespace Online_learning_platform.Data
                 WithOne(c => c.Trainer).
                 HasForeignKey( c => c.TrainerId);
 
-
-          
-
             builder.Entity<Lesson>()
           .HasOne(l => l.Courses)          
           .WithMany(c => c.Lessons)      
@@ -44,8 +41,9 @@ namespace Online_learning_platform.Data
             builder.Entity<Lesson>()
             .HasKey(e => new { e.Lesson_Id, e.CoursesId });
 
+          
 
-
+            base.OnModelCreating(builder);
         }
 
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Online_learning_platform.Data;
 
@@ -11,9 +12,11 @@ using Online_learning_platform.Data;
 namespace Online_learning_platform.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241019143904_role")]
+    partial class role
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,13 +54,15 @@ namespace Online_learning_platform.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "578fb87f-b66a-4bda-bf55-491cbcf60e7d",
+                            Id = "871baf57-2f12-4a94-926c-e365d65ce27a",
+                            ConcurrencyStamp = "81ad9c55-b327-4009-b3b3-54fe67a45e2b",
                             Name = "Admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "1f2eeaf0-886c-47ff-bd48-febe26800d95",
+                            Id = "64555fa5-b38d-4355-9508-02d444fc3edd",
+                            ConcurrencyStamp = "a4da0b3c-5f78-4941-9dae-190123c30242",
                             Name = "User",
                             NormalizedName = "user"
                         });
