@@ -40,17 +40,34 @@ namespace Online_learning_platform.Controllers
 
                 if (result.Succeeded)
                 {
-                    // Check if the role exists
-                    if (!await _roleManager.RoleExistsAsync("User"))
+                    // Check if there are any users in the system
+                    if (_userManager.Users.Count()==1)
                     {
-                        // Create the role if it doesn't exist
-                        await _roleManager.CreateAsync(new IdentityRole("User"));
+                        // Create Admin role if it doesn't exist
+                        if (!await _roleManager.RoleExistsAsync("Admin"))
+                        {
+                            await _roleManager.CreateAsync(new IdentityRole("Admin"));
+                        }
+
+                        // Assign Admin role to the first registered user
+                        await _userManager.AddToRoleAsync(user, "Admin");
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
+
+                    }
+                    else
+                    {
+                        // Create User role if it doesn't exist
+                        if (!await _roleManager.RoleExistsAsync("User"))
+                        {
+                            await _roleManager.CreateAsync(new IdentityRole("User"));
+                        }
+
+                        // Assign User role to subsequent users
+                        await _userManager.AddToRoleAsync(user, "User");
+                        return RedirectToAction("Index", "Home");
+
                     }
 
-                    // Assign the role to the user
-                    await _userManager.AddToRoleAsync(user, "User");
-
-                    return RedirectToAction("Index", "Home");
                 }
 
                 foreach (var error in result.Errors)
@@ -61,6 +78,7 @@ namespace Online_learning_platform.Controllers
 
             return View();
         }
+
 
         public IActionResult Login()
         {
