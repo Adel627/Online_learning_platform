@@ -1,4 +1,6 @@
-﻿namespace Online_learning_platform.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Online_learning_platform.Models
 {
     public class Trainer
     {
@@ -7,6 +9,8 @@
         public string Description { get; set; }
         public string Email { get; set; }
         public string? Img {  get; set; }
+        [NotMapped]
+        public IFormFile? ClientFile { get; set; }
         public List <Courses> Courses { get; set; }
     }
 }

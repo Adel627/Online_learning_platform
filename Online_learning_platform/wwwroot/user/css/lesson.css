@@ -1,0 +1,107 @@
+@import url(../css/main.css);
+@import url(../css/include.css);
+@import url(../css/track.css);         /*Import content-title */
+
+.lesson-titles{
+    background-color: var(--main-color);
+    
+}
+
+
+.lesson-titles h1{
+    color: #fff;
+    font-size: 1.9rem;
+    padding-bottom: 20px;
+    border-bottom: solid 2px #fff;
+    
+}
+
+.lesson-titles li{
+    color: #fff;
+    align-content: center;
+}
+
+.lesson-titles li div{
+    background-color: #fff;
+    border-radius: 999px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.content-title p{
+    color: var(--main-color);
+    font-size: 16px;
+    width: 90%;
+}
+
+
+/* Download files */
+.download-file{
+    font-weight: 800;
+    color: var(--main-color);
+    font-size: 1.4rem;
+    text-decoration: underline;
+}
+
+/* Code shower */
+pre {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap; /* يسمح بإظهار الأسطر الطويلة دون التمرير الأفقي */
+}
+code {
+    display: block; /* يجعل الشيفرة تأخذ عرض كامل الحاوية */
+}
+/* تنسيق الزر */
+button {
+    margin-left: 10px; /* مسافة بسيطة بين الزر والنص */
+}
+
+.code-container {
+    background: #2b2b2b;
+    color: #e4e1e1;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+}
+
+.code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.code-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.code-header button {
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: #fff 2px solid;
+    cursor: pointer;
+    font-size: 0.9em;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+pre {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 1em;
+}
+
+code {
+    display: block;
+    white-space: pre-wrap;
+}
+.alert-danger h4 {
+    color: red;
+}

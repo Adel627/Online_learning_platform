@@ -1,1 +1,50 @@
-﻿
+﻿@model Courses
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+
+<form asp-action="Edit" enctype="multipart/form-data" method="post">
+    <label>Name</label>
+    <input asp-for="Name" class="form-control" /> <br />
+
+    <label>Description</label>
+    <input asp-for="Description" class="form-control" /> <br />
+
+
+    <label>Category id</label>
+    <input asp-for="CategoryId" class="form-control" /> <br />
+   
+
+
+    <label>trainer id</label>
+    <input asp-for="TrainerId" class="form-control" /> <br />
+
+    <div>
+        <input type="file" asp-for="ClientFile" onchange="loadFile(event)" />
+        <img id="myImg" height="200" />
+    </div>
+
+
+
+    <center>
+        <button type="submit" class="btn btn-info">Update</button>
+    </center>
+</form>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        var loadFile = function (event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var myImg = document.getElementById('myImg');
+                myImg.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}

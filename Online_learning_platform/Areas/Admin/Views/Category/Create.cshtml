@@ -3,18 +3,14 @@
 @model Categories
 
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" enctype="multipart/form-data" method="post">
     <label>Name</label>
     <input asp-for="Name" class="form-control" /> <br />
 
-<!--    <label>image</label>
-    <input asp-for="Image" class="form-control" /> <br />-->
-
     <div>
-        <input type="file"  onchange="loadFile(event)" />
+        <input type="file" asp-for="ClientFile" onchange="loadFile(event)" />
         <img id="myImg" height="200" />
     </div>
-
 
     <button type="submit" class="btn btn-success">Add</button>
 </form>

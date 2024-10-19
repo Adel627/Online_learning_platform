@@ -1,8 +1,61 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<section id="hero"
+         style="background-image: url('~/user/media/background.jpg'); height: 90vh; width: 100%; filter: brightness(0.8); background-size: cover; background-position: center;">
+    <div class="hero-content" style="z-index: 1;">
+        <h2>Master New Skills, Achieve Your Goals</h2><br>
+        <p>Explore a wide range of online courses from top instructors.</p><br>
+        <a asp-controller="Courses" asp-action="Index" class="btn">Explore Courses</a>
+    </div>
+</section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section id="courses">
+    <h3>Our Popular Courses</h3>
+    <div class="course-grid">
+        <div class="course-card">
+            <h4>Web Development</h4>
+            <p>Learn HTML, CSS, JavaScript, and more.</p>
+        </div>
+        <div class="course-card">
+            <h4>Data Science</h4>
+            <p>Master Python, data visualization, and machine learning.</p>
+        </div>
+        <div class="course-card">
+            <h4>UI/UX Design</h4>
+            <p>Learn the essentials of user interface and user experience design.</p>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<br>
+
+<!-- Tracks Section -->
+
+<section id="Categories" class="container tracks-title">
+    <div class="row d-flex align-items-center justify-content-between mr-5">
+        <div class="col-auto">
+            <h1>Tracks</h1>
+        </div>
+        <div class="col-auto">
+            <button id="More-btn">MORE</button>
+        </div>
+    </div>
+
+    <div class="row d-flex align-items-start justify-content-between">
+        <div class="col">
+            <div class="item m-3">
+                <a asp-controller="Category" asp-action="Index">
+                    <div class="image">
+                        <img src="~/user/media/frontend.png" alt="Error">
+                    </div>
+                    <div class="content p-3">
+                        <h1>Front-end Track</h1>
+                        <h3 class="mb-1">Instructor: Mohamed Hussien</h3><br>
+                        <h5>HTML, CSS, SASS, Bootstrap5, JS,React</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

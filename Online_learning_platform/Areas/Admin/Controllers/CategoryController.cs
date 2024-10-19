@@ -2,6 +2,7 @@
 using Online_learning_platform.Areas.Admin.Repositores;
 using Online_learning_platform.Data;
 using Online_learning_platform.Models;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Online_learning_platform.Areas.Admin.Controllers
 {
@@ -9,9 +10,11 @@ namespace Online_learning_platform.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
         private readonly CrudRepository<Categories> _crudRepository;
-        public CategoryController(CrudRepository<Categories> repo)
+        private readonly IHostingEnvironment _host;
+        public CategoryController(CrudRepository<Categories> repo , IHostingEnvironment host)
         {
             _crudRepository = repo;
+            _host = host;
         }
         public IActionResult Index()
         {
@@ -26,7 +29,17 @@ namespace Online_learning_platform.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Categories model)
         {
-           _crudRepository.creat(model);
+            string fileName = string.Empty;
+            if (model.ClientFile != null)
+            {
+                string myUpload = Path.Combine(_host.WebRootPath, "images");
+                fileName = model.ClientFile.FileName;
+                string fullPath = Path.Combine(myUpload, fileName);
+                model.ClientFile.CopyTo(new FileStream(fullPath, FileMode.Create));
+                model.Img = fileName;
+            }
+
+            _crudRepository.creat(model);
             return RedirectToAction("Index");
         }
 
@@ -45,6 +58,15 @@ namespace Online_learning_platform.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Edit(Categories model)
         {
+              string fileName = string.Empty;
+            if (model.ClientFile != null)
+            {
+                string myUpload = Path.Combine(_host.WebRootPath, "images");
+                fileName = model.ClientFile.FileName;
+                string fullPath = Path.Combine(myUpload, fileName);
+                model.ClientFile.CopyTo(new FileStream(fullPath, FileMode.Create));
+                model.Img = fileName;
+            }
           _crudRepository.Update(model);
             return RedirectToAction("Index");
         }

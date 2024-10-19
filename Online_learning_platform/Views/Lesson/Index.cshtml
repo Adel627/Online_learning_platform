@@ -1,0 +1,36 @@
+﻿@model List<Lesson>
+ 
+    
+@if (Model.Count() > 0)
+{
+
+    <sidebar>
+        <div class="row">
+            <div class="col-3 lesson-titles p-3">
+                <h1 class="ms-4 mb-4">Lessons</h1>
+
+                <ul class="ms-5 m-1">
+                    @foreach (var item in Model)
+                    {
+
+                        <a asp-route-Lesson_Id="@item.Lesson_Id" asp-route-CoursesId="@item.CoursesId" asp-action="Lesson_Details">
+                        <li>
+                            <div class="me-3"></div>@item.Title
+                        </li>
+                        </a>
+                        <br>
+
+                    }
+                </ul>
+            </div>
+    </sidebar>
+}
+else
+{
+    <br /><br /><br />
+    <div class="alert alert-danger">
+      <h4  style="color: red;">There are no Lessons</h4>
+    </div>
+
+}
+

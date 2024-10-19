@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_AuthLayout1.cshtml";
+}
+@model RegisterViewModel
+<a id="main"></a>
+
+<div class="card p-3">
+    <h2>Courses Online</h2>
+    <hr>
+    <br><br>
+
+    <div asp-validation-summary="All"></div>
+    <form asp-action="Register" method="post" class="login-form">
+        <div class="name">
+            <div class="field me-4">
+                <label>First Name</label><br>
+                <input asp-for="FirstName" type="text" placeholder="Enter" autofocus />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="field">
+                <label>Last Name</label><br>
+                <input asp-for="LastName" type="text" placeholder="Enter" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <br>
+
+        <div class="label">
+            <label>Username</label><br>
+            <input asp-for="Username" type="text" placeholder="Enter your Username" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <br>
+
+        <div class="label">
+            <label>Email</label><br>
+            <input asp-for="Email" type="email" placeholder="Enter your Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <br>
+
+        <div class="label">
+            <label>Password</label><br>
+            <input asp-for="Password" type="password" placeholder="Enter your password" minlength="8" maxlength="30" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Create" />
+        <a asp-action="Login">Have an Account?</a><br>
+    </form>
+
+
+</div>

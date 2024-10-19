@@ -1,0 +1,104 @@
+@import url(../css/main.css);
+@import url(../css/include.css);
+
+
+*{
+    text-align: left;
+}
+
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    background-color: #f0f0f0; 
+}
+
+.card {
+    min-width: 60%;
+    height: fit-content;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+@media only screen and (min-width: 1024px) {
+    .card{
+        min-width: 25%;
+    }
+}
+
+label{
+    font-weight: 600;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: var(--main-color);
+    font-family: "Raleway", sans-serif;
+    transition: 1s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus{
+    background-color:  var(--second-color);
+    color: var(--main-color);
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="text"]::placeholder{
+    font-weight: 600;
+}
+
+input[type="submit"] {
+    width: 50%;
+    background-color: var(--second-color);
+    color: var(--main-color);
+    padding: 10px;
+    border: 2px var(--second-color) solid;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 3%;
+    transition: 0.7s ease;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffff;
+    border: var(--main-color) 2px solid;
+    color: var(--main-color);
+    
+
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--main-color);
+    text-decoration: none;
+    transition: 0.7s ease;
+}
+
+a:hover {
+    font-weight: 600;
+}
+
+
+
+/* Sign up */
+.name{
+    display: flex;
+
+}

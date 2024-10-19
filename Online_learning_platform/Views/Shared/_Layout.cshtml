@@ -1,12 +1,118 @@
-﻿<html>
-    <head>
-       
-        <title>Courses online</title>
-    </head>
+﻿<!DOCTYPE html>
+<html lang="en">
 
-    <body>
-        <a class="button" asp-action="Index">Home</a>
-        <a class="button" asp-action="Privacy">Privacy</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Courses Online</title>
+    <link rel="icon" type="image/x-icon" href="~/user/media/favicon.ico">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="~/user/css/track.css">
+    <link rel="stylesheet" href="~/user/css/index.css">
+
+
+    <!-- JS Scripts -->
+    <script src="~/user/js/fetch.js"></script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" id="header-placeholder">
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap-grid.min.css"
+          integrity="sha512-Aa+z1qgIG+Hv4H2W3EMl3btnnwTQRA47ZiSecYSkWavHUkBF2aPOIIvlvjLCsjapW1IfsGrEO3FU693ReouVTA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Raleway: font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+    <a id="main"></a>
+    <header class="col-12">
+        <div class="row d-flex justify-content-between align-items-center">
+            <!-- Logo -->
+            <div class="col text-center d-flex justify-content-center align-items-center mb-0 logo">
+                <h1><strong>Courses Online</strong></h1>
+            </div>
+            <!-- nav -->
+            <div class="col-8 text-center nav">
+                <ul class="d-flex justify-content-center align-items-center mb-0">
+                    <li class="mx-4"><a asp-controller="Home" asp-action="Index" class="nav">Home</a></li>
+                    <li class="mx-4"><a asp-controller="Category" asp-action="Index" class="nav">Categories</a></li>
+                    <li class="mx-4"><a asp-controller="Courses" asp-action="Index" class="nav">Courses</a></li>
+                    <li class="mx-4"><a asp-controller="MyCourses" asp-action="Index" class="nav">My Courses</a></li>
+                    <li><input type="text" placeholder="Search..." class="mt-2"></li>
+                </ul>
+            </div>
+            <!-- Account -->
+            <div class="col d-flex justify-content-center align-items-center mb-0 account" style="position: relative;">
+                <i class="fa-regular fa-circle-user" id="accountDropdown"></i></a>
+                <h4 class="ms-1">Hello,Mohamed</h4>
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a asp-controller="Account" asp-action="Index" class="dropdown-item border-0">Account</a></li>
+                    <li><a asp-controller="Account" asp-action="Logout" class="dropdown-item border-0">Logout</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+
     @RenderBody()
-    </body>
+    <br>
+    <br>
+    <br>
+    <center class="fixed-bottom">
+    <!-- fetch Footer -->
+    <a id="main"></a>
+    <footer class="d-flex justify-content-center p-3">
+        <div class="container">
+            <div class=" row  d-flex justify-content-center">
+                <!-- Logo -->
+                <div class="col container  mb-0 logo">
+                    <h1><strong>Courses Online</strong></h1>
+                </div>
+                <!-- nav -->
+                <div class="col text-center nav">
+                    <ul class="container ">
+                        <li class="mb-2"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="mt-4"><a asp-controller="Category" asp-action="Index">Categories</a></li>
+                    </ul>
+                </div>
+                <!-- contact us -->
+                <div class="col container">
+                    <form action="#" method="POST">
+                        <input type="email" name="email" id="email" placeholder="Enter Your Email"
+                               style="background-color: white;"><br>
+                        <textarea name="" id="" cols="19" rows="5" placeholder="Enter Your Message"></textarea><br>
+                        <input class="px-5" type="submit" value="Contact us">
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col text-center copy-write">
+                    <p>&copy; 2024 DEPI-Tanta Project</p>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    </center>
+    <script src="~/user/js/elements.js"></script>
+    <!-- Bootstrap 5 JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
 </html>

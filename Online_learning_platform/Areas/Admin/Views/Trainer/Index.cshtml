@@ -1,1 +1,66 @@
-﻿<h1>Trainer index</h1>
+﻿@model List<Trainer>
+
+<h2>All Trainers</h2>
+<br />
+<br />
+
+<a asp-controller="Trainer" asp-action="Create" class="btn btn-primary">Create Trainer</a>
+<br />
+<br />
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped table-hover">
+        <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Email</td>
+                    <td>
+                        <img src="~/images/@item.Img" style="width:48px" class="img-thumbnail" />
+                    </td>
+
+                    <center>
+                    <td />
+                    <a asp-route-id="@item.Id" asp-action="Edit" class="btn btn-info">Update</a>
+                    <td />
+                    <a asp-route-id="@item.Id" asp-action="Delete" class="btn btn-Danger">Delete</a>
+                    <td />
+
+
+                    </center>
+
+                </tr>
+
+            }
+
+        </tbody>
+
+    </table>
+}
+else
+{
+
+    <div class="alert alert-danger">
+        <h4>There are no Trainers</h4>
+    </div>
+
+}
+
+
+
+

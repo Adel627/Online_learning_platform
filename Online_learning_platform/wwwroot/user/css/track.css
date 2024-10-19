@@ -1,0 +1,67 @@
+@import url(./main.css);
+@import url(./include.css);
+
+
+/* sidebar style */
+sidebar{
+    width: fit-content;
+    padding: 20px;
+}
+
+/* Import item-track from index CSS file */
+
+/* Start Now */
+.start-btn{
+    color: #fff;
+    background-color: var(--second-color);
+    padding: 10px 30px;
+    border: 2px solid var(--second-color);
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    transition: transform ease 1s;
+}
+
+.start-btn:hover{
+    transform: scale(1.1);
+}
+
+/* Content table */
+
+.content-title a,
+.content-title span{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--main-color);
+    transition: ease-in 0.3s;
+}
+
+.content-title a:hover{
+    color: var(--second-color);
+}
+
+.content-title h1{
+    color: var(--main-color);
+    font-size: 24px;
+    font-weight: 800;
+    padding: 10px;
+}
+
+.content-title h2{
+    color: var(--main-color);
+    font-size: 18px;
+    font-weight: 800;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.courses-content{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: start;
+}
+
+.item{
+    margin: 15px;
+    margin-left: 0;
+}

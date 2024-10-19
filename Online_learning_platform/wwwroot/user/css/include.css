@@ -1,0 +1,189 @@
+/* Header and Footer */
+@import url(../css/main.css);
+
+/* Header */
+header{
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    position: fixed;
+    background-color: #ffffff;
+    padding-bottom:4px;
+    z-index: 999;
+}
+
+.logo h1 strong{
+    text-transform: uppercase;
+    color:  var(--main-color);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+header ul li a{
+    font-size: 18px;
+    color: var(--main-color);
+    padding-bottom: 12px;
+    padding-right: 3px;
+    padding-left: 3px;
+    border-bottom: 2px solid #ffff;
+    transition: ease 0.4s;
+}
+
+header ul li a:hover{
+    border-bottom: 2px solid var(--second-color);
+}
+header input[type="text"]{
+    align-items: center;
+    
+}
+
+.account i{
+    color: var(--main-color); 
+    font-size: 26px;
+    cursor: pointer;
+}
+.account h4{
+    color: var(--main-color);
+    font-weight: 400;
+
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    min-width: 170px;
+}
+
+.dropdown-menu li {
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: center;
+    border: 0;
+    padding: 10px 0;
+}
+
+.dropdown-menu li:hover {
+    background-color: var(--second-color);
+    color: var(--main-color);
+}
+
+.dropdown-menu li a,
+.dropdown-menu li a:hover {
+    border: 0;
+}
+
+
+
+
+/* Footer */
+footer {
+    background-color: var(--main-color);
+    width: 100%
+}
+
+footer .logo h1 strong {
+    color: #ffff;
+}
+
+footer ul li a {
+    font-size: 16px;
+    color: #ffff;
+    padding-bottom: 12px;
+    transition: ease 0.3s;
+}
+
+footer ul li a:hover {
+    color: rgba(255, 255, 255, 0.568);
+}
+
+input[type="email"],
+input[type="text"]{
+    padding: 3px 5px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 0;
+    margin-bottom: 5px;
+    color: var(--main-color);
+    font-weight: 600;
+    font-family: "Raleway", sans-serif;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+input[type="email"]:focus,
+textarea:focus{
+    outline: none;
+}
+
+input[type="email"]::placeholder,
+textarea::placeholder,
+input[type="text"]::placeholder{
+    font-weight: 300;
+}
+
+textarea {
+    padding: 3px 5px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 0;
+    margin-bottom: 10px;
+    color: var(--main-color);
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    width: 300px;
+}
+
+input[type="submit"]{
+    font-family: "Raleway", sans-serif;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 0;
+    color: var(--main-color);
+    width: 300px;
+    font-size: 14px;
+    font-weight: 800;
+    background-color: #ffff;
+    transition: ease 0.5s;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--second-color);
+}
+
+.copy-write p {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.568);
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+
+
+
+/* Items */
+/* More Button */
+#More-btn{
+    color: #fff;
+    background-color: var(--second-color);
+    padding: 10px 25px;
+    border: 2px solid var(--second-color);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 3rem;
+    transition: ease 0.6s;
+}
+
+
+#More-btn:hover{
+    color: var(--second-color);
+    background-color: #fff;
+    border: 2px solid var(--second-color);
+}

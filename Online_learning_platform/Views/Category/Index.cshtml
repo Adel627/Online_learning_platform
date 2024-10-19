@@ -1,0 +1,33 @@
+﻿@model List< Categories>
+<section id="Categories" class="container tracks-title">
+    <div class="row d-flex align-items-center justify-content-between mr-5">
+        <div class="col-auto">
+            <h1>Tracks</h1>
+        </div>
+        <div class="col-auto">
+            <button id="More-btn">MORE</button>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="item m-3" style="height: 350px; border: 1px solid #ddd; border-radius: 5px;">
+                    <a asp-route-ID="@item.ID" asp-action="CategoryCourse">
+                        <!-- Image section -->
+                        <div class="image" style="height: 200px; overflow: hidden;">
+                            <img src="~/images/@item.Img" alt="Error" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;">
+                        </div>
+
+                        <!-- Content section -->
+                        <div class="content p-3 text-center">
+                            <h1 style="font-size: 1.5rem;">@item.Name</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+
+</section>

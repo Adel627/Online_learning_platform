@@ -1,0 +1,34 @@
+﻿@model List<Courses>
+
+    <!-- Courses Section -->
+    <section class="container courses-title">
+        <div class="row d-flex align-items-center justify-content-between mr-5">
+            <div class="col-auto">
+                <h1>Courses</h1>
+            </div>
+        </div>
+    <div class="row">
+        <!-- Loop through your items -->
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6 mb-4 d-flex align-items-stretch">
+                <div class="item d-flex flex-column">
+                    <a asp-route-CoursesId="@item.CoursesId" asp-controller="Lesson" asp-action="Index" class="d-flex flex-column h-100">
+                        <div class="image" style="height: 200px; overflow: hidden;">
+                            <img src="~/images/@item.Img" alt="Error" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                        </div>
+                        <div class="content p-3 flex-grow-1 d-flex flex-column">
+                            <h1>@item.Name</h1>
+                            <h3 class="mb-1">Instructor: @item.Trainer.Name</h3>
+                            <h5 class="mb-1">Creation Date: @item.CreationDate</h5>
+                            <button type="button" class="start-btn mt-3 mt-auto">Add</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+    </section>
+
+
+   

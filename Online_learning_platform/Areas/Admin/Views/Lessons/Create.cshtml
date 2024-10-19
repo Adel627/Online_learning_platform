@@ -1,0 +1,28 @@
+﻿
+<h1>Creat</h1>
+@model Lesson
+
+
+<form asp-action="Create"  method="post">
+
+  
+    <label>Order</label>
+    <input asp-for="@Model.Lesson_Id" class="form-control" /> <br />
+
+    <label>course id</label>
+    <input asp-for="@Model.CoursesId"  class="form-control" /> <br /> 
+
+   
+
+    <label>Title</label>
+    <input asp-for="@Model.Title" class="form-control" /> <br />
+
+    <label>Description</label>
+    <input asp-for="@Model.Description" class="form-control" /> <br />
+
+    <label>Video</label>
+    <input asp-for="@Model.Video" class="form-control" /> <br />
+
+    <button  type="submit" class="btn btn-success">Add</button>
+</form>
+

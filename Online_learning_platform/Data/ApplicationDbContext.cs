@@ -10,13 +10,15 @@ namespace Online_learning_platform.Data
     {
         public DbSet<Categories>Categories  { get; set; }
         public DbSet<Courses> Courses { get; set; }
-        public DbSet<Lessons> lessons { get; set; }
         public DbSet<Trainer> Trainer { get; set; }
+        public DbSet<Lesson> lesson { get; set; }
+
         public DbSet<UserCourses> UserCourses { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
         }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -31,13 +33,21 @@ namespace Online_learning_platform.Data
                 WithOne(c => c.Trainer).
                 HasForeignKey( c => c.TrainerId);
 
-            builder.Entity<Courses>().
-                HasMany(c => c.Lessons).
-                WithOne( l => l.Courses ).
-                HasForeignKey(l => l.CoursesId).
-                IsRequired();
+
+          
+
+            builder.Entity<Lesson>()
+          .HasOne(l => l.Courses)          
+          .WithMany(c => c.Lessons)      
+          .HasForeignKey(l => l.CoursesId);
+
+            builder.Entity<Lesson>()
+            .HasKey(e => new { e.Lesson_Id, e.CoursesId });
+
+
 
         }
+
 
     }
 }

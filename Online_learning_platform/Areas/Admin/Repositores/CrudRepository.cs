@@ -40,5 +40,7 @@ namespace Online_learning_platform.Areas.Admin.Repositores
         { 
             return _context.Set<T>().Find(id);
         }
+
     }
+    
 }

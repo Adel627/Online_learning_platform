@@ -23,9 +23,15 @@ namespace Online_learning_platform
 
             builder.Services.AddScoped
                <CrudRepository<Categories>>();
+            builder.Services.AddScoped
+               <CrudRepository<Trainer>>();
+            builder.Services.AddScoped
+               <CourseRepository>();
+            builder.Services.AddScoped
+              <LessonRepository>();
 
             builder.Services.AddIdentity
-             <IdentityUser, IdentityRole>()
+             <ApplicationUser, IdentityRole>()
            .AddEntityFrameworkStores<ApplicationDbContext>();
 
             var app = builder.Build();
@@ -55,7 +61,7 @@ namespace Online_learning_platform
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Register}/{id?}");
         
 
             app.Run();

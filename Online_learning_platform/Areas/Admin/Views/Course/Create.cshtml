@@ -1,1 +1,49 @@
 ﻿
+<h1>Creat</h1>
+@model CourseViewModel
+
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <label>Name</label>
+    <input asp-for="@Model.Courses.Name" class="form-control" /> <br />
+
+    <label>Description</label>
+    <input asp-for="@Model.Courses.Description" class="form-control" /> <br />
+
+    <div>
+        <label for="exampleSelect1" class="form-label mt-4">Select Category</label>
+        <select class="form-select" id="exampleSelect1" asp-for="@Model.Courses. CategoryId" asp-items="Model.Categores">
+            <option value="">Select a category</option> <!-- Placeholder option -->
+        </select>
+    </div>
+
+    <div>
+        <label for="exampleSelect1" class="form-label mt-4">Select Trainer</label>
+        <select class="form-select" id="exampleSelect1" asp-for="@Model.Courses.TrainerId" asp-items="Model.Trainers">
+            <option value="">Select a Trainer</option> <!-- Placeholder option -->
+        </select>
+    </div>
+
+    <div>
+        <input type="file" asp-for="@Model.Courses. ClientFile" onchange="loadFile(event)" />
+        <img id="myImg" height="200" />
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Add</button>
+</form>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        var loadFile = function (event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var myImg = document.getElementById('myImg');
+                myImg.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}

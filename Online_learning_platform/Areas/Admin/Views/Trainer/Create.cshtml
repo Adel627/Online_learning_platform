@@ -1,1 +1,38 @@
 ﻿
+<h1>Creat</h1>
+@model Trainer
+
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <label>Name</label>
+    <input asp-for="Name" class="form-control" /> <br />
+
+    <label>Description</label>
+    <input asp-for="Description" class="form-control" /> <br />
+
+    <label>Email</label>
+    <input asp-for="Email" class="form-control" /> <br />
+
+    <div>
+        <input asp-for="ClientFile" type="file" onchange="loadFile(event)" />
+        <img id="myImg" height="200" />
+    </div>
+
+
+    <button type="submit" class="btn btn-success">Add</button>
+</form>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        var loadFile = function (event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var myImg = document.getElementById('myImg');
+                myImg.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}

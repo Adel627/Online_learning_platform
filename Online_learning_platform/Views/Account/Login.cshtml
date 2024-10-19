@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_AuthLayout1.cshtml";
+}
+
+@model LoginViewModel
+
+    <a id="main"></a>
+    <div class="card p-3">
+        <h2>Courses Online</h2>
+        <hr>
+        <br><br>
+
+<form asp-action="Login" method="post">
+    <div class="label">
+        <label for="email">Email</label><br>
+        <input asp-for="Email" type="email" id="email" placeholder="Enter your Email" autofocus />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <br>
+    
+    <div class="label">
+        <label for="password">Password</label><br>
+        <input asp-for="Password" type="password" id="password" placeholder="Enter your password" minlength="8" maxlength="30" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <a asp-action="Index">Haven't an Account?</a><br>
+
+    <input type="submit" value="Enter" />
+</form>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+    </div>
+
+
+

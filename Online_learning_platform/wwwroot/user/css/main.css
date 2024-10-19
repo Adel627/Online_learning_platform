@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+::selection{
+    color: var(--main-color);
+    background-color: var(--second-color);
+}
+
+body{
+    background-color: #fff;
+    font-family: "Raleway", sans-serif;
+    width: 100%;
+    font-size: 16px;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+:root{
+    --main-color: #1A3D49;
+    --second-color: #80CF6B;
+    --link-color: #990707dc;
+}

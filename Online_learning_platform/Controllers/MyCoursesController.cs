@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Online_learning_platform.Areas.Admin.Controllers
+namespace Online_learning_platform.Controllers
 {
-    [Area("Admin")]
-
-    public class CourseUnitsController : Controller
+    public class MyCoursesController : Controller
     {
         public IActionResult Index()
         {

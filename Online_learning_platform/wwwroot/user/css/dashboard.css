@@ -1,0 +1,78 @@
+@import url(./include.css);
+@import url(./main.css);
+@import url(./index.css);
+@import url(./track.css);
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title h1{
+    color: var(--main-color);
+    font-size: 24px;
+    font-weight: 800;
+    padding: 10px;
+}
+
+.logout{
+    background-color: var(--main-color);
+    border-radius: 999px;
+    border: 0;
+}
+
+.logout a{
+    color: #ffff;
+    font-size: 18px;
+    padding: 8px 12px;
+}
+
+.data{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.img img{
+    width: 220px;
+    height: 220px;
+    border-radius: 999px;
+}
+
+label{
+    font-weight: 600;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: var(--main-color);
+    font-family: "Raleway", sans-serif;
+    background-color: rgba(0, 0, 0, 0.329);
+}
+
+.name{
+    display: flex;
+}
+
+.label span{
+    text-decoration: underline;
+    color:  red;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.password{
+    display: flex;
+    align-items: center;
+}

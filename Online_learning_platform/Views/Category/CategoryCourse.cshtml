@@ -1,0 +1,60 @@
+﻿@model CategoryViewModel
+
+
+    <sidebar class="tracks-title">
+        <div class="row ">
+            <div class="col-4 d-flex flex-column align-items-center justify-content-start">
+                <div class="item-track m-3">
+                    <a href="./lesson.html">
+                        <div class="image">
+                            <img src="~/images/@Model.category.Img" alt="Error">
+                        </div>
+                        <div class="content p-3 text-center">
+                            <h1>@Model.category.Name</h1>
+                        </div>
+                    </a>
+                </div>
+                <!-- Start button -->
+                <button type="button" class="start-btn mt-3">Add to Dashboard</button>
+            </div>
+
+
+
+
+
+            <!-- Titles of content and path in website  -->
+            <article class="col">
+                <div class="row">
+                    <div class="content-title">
+                        <a href="../index.html">Home </a><span>>> </span><a href="../index.html">Category </a><span>
+                            >>
+                        </span><a href="./track.html">Front-end Track</a>
+                        <h1 class="ps-0">@Model.category.Name</h1>
+                        <h2 class="ps-0">Courses</h2>
+                    </div>
+                </div>
+            <div class="row">
+                <!-- Loop through your items -->
+                @foreach (var item in Model.courses)
+                {
+                    <div class="col-md-4 col-sm-6 mb-4 d-flex align-items-stretch">
+                        <div class="item d-flex flex-column">
+                            <a href="" class="d-flex flex-column h-100">
+                                <div class="image" style="height: 200px; overflow: hidden;">
+                                    <img src="~/images/@item.Img" alt="Error" class="img-fluid w-100 h-100" style="object-fit: cover;">
+                                </div>
+                                <div class="content p-3 flex-grow-1 d-flex flex-column">
+                                    <h1>@item.Name</h1>
+                                    <h3 class="mb-1">Instructor: @item.Trainer.Name</h3>
+                                    <h5 class="mb-1">Creation Date: @item.CreationDate</h5>
+                                    <button type="button" class="start-btn mt-3 mt-auto">Add</button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+        </article>
+
