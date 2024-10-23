@@ -5,6 +5,7 @@ using System.Diagnostics;
 
 namespace Online_learning_platform.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

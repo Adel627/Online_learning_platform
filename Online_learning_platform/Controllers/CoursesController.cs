@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Online_learning_platform.Data;
 
 namespace Online_learning_platform.Controllers
 {
+ 
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _context;

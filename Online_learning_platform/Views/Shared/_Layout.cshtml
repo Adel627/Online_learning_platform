@@ -1,23 +1,20 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> SignInManager
+
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Courses Online</title>
-    <link rel="icon" type="image/x-icon" href="~/user/media/favicon.ico">
-
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="~/user/css/track.css">
-    <link rel="stylesheet" href="~/user/css/index.css">
-
+    <title>Your Courses</title>
+    <link rel="stylesheet" href="~/user/css/dashboard.css">
 
     <!-- JS Scripts -->
     <script src="~/user/js/fetch.js"></script>
 
     <!-- CSS Files -->
     <link rel="stylesheet" id="header-placeholder">
-
+    <link rel="stylesheet" href="~/user/css/lesson.css">
     <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap-grid.min.css"
           integrity="sha512-Aa+z1qgIG+Hv4H2W3EMl3btnnwTQRA47ZiSecYSkWavHUkBF2aPOIIvlvjLCsjapW1IfsGrEO3FU693ReouVTA=="
@@ -34,7 +31,6 @@
 </head>
 
 <body>
-    <a id="main"></a>
     <header class="col-12">
         <div class="row d-flex justify-content-between align-items-center">
             <!-- Logo -->
@@ -53,13 +49,23 @@
             </div>
             <!-- Account -->
             <div class="col d-flex justify-content-center align-items-center mb-0 account" style="position: relative;">
-                <i class="fa-regular fa-circle-user" id="accountDropdown"></i></a>
-                <h4 class="ms-1">Hello,User</h4>
-                <ul class="dropdown-menu" id="dropdownMenu">
-                @*     <li><a asp-controller="Account" asp-action="Index" class="dropdown-item border-0">Account</a></li> *@
-                    <li><a asp-controller="Account" asp-action="Register" class="dropdown-item border-0">Logout</a></li>
-                </ul>
+                <a href="#"><i class="fa-regular fa-circle-user" id="accountDropdown"></i></a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <h4 class="ms-1">Hello,@User.Identity?.Name</h4>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a asp-controller="Account" asp-action="Logout" class="dropdown-item border-0" >Logout</a></li>
+                    </ul>
+                }
+                else
+                {
+                    <h4 class="ms-1">Hello,User</h4>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a asp-controller="Account" asp-action="Register" class="dropdown-item border-0">Register</a></li>
+                    <li><a asp-controller="Account" asp-action="Login" class="dropdown-item border-0">Login</a></li>
+                    </ul>
 
+                }
             </div>
         </div>
     </header>
@@ -68,10 +74,10 @@
     <br>
 
     @RenderBody()
+    
     <br>
     <br>
     <br>
-    <center class="fixed-bottom">
     <!-- fetch Footer -->
     <a id="main"></a>
     <footer class="d-flex justify-content-center p-3">
@@ -84,8 +90,8 @@
                 <!-- nav -->
                 <div class="col text-center nav">
                     <ul class="container ">
-                        <li class="mb-2"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="mt-4"><a asp-controller="Category" asp-action="Index">Categories</a></li>
+                        <li class="mb-2"><a href="../index.html">Home</a></li>
+                        <li class="mt-4"><a href="../index.html">Categories</a></li>
                     </ul>
                 </div>
                 <!-- contact us -->
@@ -98,16 +104,14 @@
                     </form>
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col text-center copy-write">
                     <p>&copy; 2024 DEPI-Tanta Project</p>
                 </div>
             </div>
-            
         </div>
     </footer>
-    </center>
+
     <script src="~/user/js/elements.js"></script>
     <!-- Bootstrap 5 JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -115,4 +119,4 @@
 
 </body>
 
-</html>
+</html> 

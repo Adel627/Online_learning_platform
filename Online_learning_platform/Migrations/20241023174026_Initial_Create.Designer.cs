@@ -12,7 +12,7 @@ using Online_learning_platform.Data;
 namespace Online_learning_platform.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241020175115_Initial_Create")]
+    [Migration("20241023174026_Initial_Create")]
     partial class Initial_Create
     {
         /// <inheritdoc />
@@ -250,6 +250,20 @@ namespace Online_learning_platform.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Img = "download (2).jpeg",
+                            Name = "Backend"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Img = "frontend.png",
+                            Name = "Frontend"
+                        });
                 });
 
             modelBuilder.Entity("Online_learning_platform.Models.Courses", b =>
@@ -287,6 +301,78 @@ namespace Online_learning_platform.Migrations
                     b.HasIndex("TrainerId");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            CoursesId = 1,
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 10, 2, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this course you will learn all concepts of c# language",
+                            Img = "csharp.png",
+                            Name = "C#",
+                            TrainerId = 1
+                        },
+                        new
+                        {
+                            CoursesId = 2,
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 10, 10, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this course you will learn all concepts of Data bases with Sql server",
+                            Img = "Sql.jpeg",
+                            Name = "Data Base",
+                            TrainerId = 1
+                        },
+                        new
+                        {
+                            CoursesId = 3,
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this course you will learn all concepts of how to query data using linq library",
+                            Img = "Linq.jpeg",
+                            Name = "Linq",
+                            TrainerId = 1
+                        },
+                        new
+                        {
+                            CoursesId = 4,
+                            CategoryId = 1,
+                            CreationDate = new DateTime(2024, 10, 22, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this course you will learn all concepts of how to conect with database from vs and building database with c#",
+                            Img = "EF.jpeg",
+                            Name = "EF core",
+                            TrainerId = 1
+                        },
+                        new
+                        {
+                            CoursesId = 5,
+                            CategoryId = 2,
+                            CreationDate = new DateTime(2024, 10, 13, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this course you will learn all concepts of how to build the skeleton of the page ",
+                            Img = "Html.jpeg",
+                            Name = "HTML",
+                            TrainerId = 3
+                        },
+                        new
+                        {
+                            CoursesId = 6,
+                            CategoryId = 2,
+                            CreationDate = new DateTime(2024, 10, 16, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this course you will learn all concepts of how to style page elements",
+                            Img = "Css.jpeg",
+                            Name = "CSS",
+                            TrainerId = 3
+                        },
+                        new
+                        {
+                            CoursesId = 7,
+                            CategoryId = 2,
+                            CreationDate = new DateTime(2024, 10, 22, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this course you will learn all concepts of how to make the page dynamic ",
+                            Img = "Js.png",
+                            Name = "JS",
+                            TrainerId = 3
+                        });
                 });
 
             modelBuilder.Entity("Online_learning_platform.Models.Lesson", b =>
@@ -316,6 +402,53 @@ namespace Online_learning_platform.Migrations
                     b.HasIndex("CoursesId");
 
                     b.ToTable("lesson");
+
+                    b.HasData(
+                        new
+                        {
+                            Lesson_Id = 1,
+                            CoursesId = 1,
+                            CreationDate = new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "introduction to c#",
+                            Title = "introduction",
+                            Video = "https://youtu.be/DZHohhJDjHk?si=ntxasWbbdiUK8vwu"
+                        },
+                        new
+                        {
+                            Lesson_Id = 2,
+                            CoursesId = 1,
+                            CreationDate = new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Learn the basic syntax of lthe language ",
+                            Title = "Language Syntax",
+                            Video = "https://youtu.be/ArvFgo9wM3M?si=CuVFmK8AZJssrLer"
+                        },
+                        new
+                        {
+                            Lesson_Id = 3,
+                            CoursesId = 1,
+                            CreationDate = new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "we will learn how to write to console and display it",
+                            Title = "Writen to console",
+                            Video = "https://youtu.be/xP1vT4Qpw1w?si=0S-5WCbTDDhZALhl"
+                        },
+                        new
+                        {
+                            Lesson_Id = 4,
+                            CoursesId = 1,
+                            CreationDate = new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "in this lesson you will learn the kind of variables , his scopes and how to use it ",
+                            Title = "variables",
+                            Video = "https://youtu.be/Mc74_yTAK3Y?si=7b8GuFSXXaVfe4sA"
+                        },
+                        new
+                        {
+                            Lesson_Id = 5,
+                            CoursesId = 1,
+                            CreationDate = new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified),
+                            Description = "you will learn the kinds of data types and the using of it ",
+                            Title = "Data Types",
+                            Video = "https://youtu.be/TchQzL53Fs0?si=cPNVtPtShT9WxK5S"
+                        });
                 });
 
             modelBuilder.Entity("Online_learning_platform.Models.Trainer", b =>
@@ -344,6 +477,32 @@ namespace Online_learning_platform.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Trainer");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "I am a Backend Developer in xqt company and work as instructor",
+                            Email = "mohamed23@gmail.com",
+                            Img = "images (1).jpeg",
+                            Name = "Mohamed"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "I am a Frontend Developer in solution  company and work as instructor",
+                            Email = "ahmed78@gmail.com",
+                            Img = "ahmedemp.jpg",
+                            Name = "Ahmed"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "I am a Ui&Ux Developer in soft company and work as instructor",
+                            Email = "camelia90@gmail.com",
+                            Img = "empimg.jpeg",
+                            Name = "Camelia"
+                        });
                 });
 
             modelBuilder.Entity("Online_learning_platform.Models.UserCourses", b =>

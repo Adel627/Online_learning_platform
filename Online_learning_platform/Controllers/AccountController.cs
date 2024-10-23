@@ -5,6 +5,7 @@ using Online_learning_platform.ViewModels;
 
 namespace Online_learning_platform.Controllers
 {
+    
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -116,6 +117,13 @@ namespace Online_learning_platform.Controllers
 
             return View();
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
 
     }
 }

@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Online_learning_platform.Migrations
 {
     /// <inheritdoc />
@@ -266,6 +268,51 @@ namespace Online_learning_platform.Migrations
                         principalTable: "Courses",
                         principalColumn: "CoursesId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "ID", "Img", "Name" },
+                values: new object[,]
+                {
+                    { 1, "download (2).jpeg", "Backend" },
+                    { 2, "frontend.png", "Frontend" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Trainer",
+                columns: new[] { "Id", "Description", "Email", "Img", "Name" },
+                values: new object[,]
+                {
+                    { 1, "I am a Backend Developer in xqt company and work as instructor", "mohamed23@gmail.com", "images (1).jpeg", "Mohamed" },
+                    { 2, "I am a Frontend Developer in solution  company and work as instructor", "ahmed78@gmail.com", "ahmedemp.jpg", "Ahmed" },
+                    { 3, "I am a Ui&Ux Developer in soft company and work as instructor", "camelia90@gmail.com", "empimg.jpeg", "Camelia" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Courses",
+                columns: new[] { "CoursesId", "CategoryId", "CreationDate", "Description", "Img", "Name", "TrainerId" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2024, 10, 2, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this course you will learn all concepts of c# language", "csharp.png", "C#", 1 },
+                    { 2, 1, new DateTime(2024, 10, 10, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this course you will learn all concepts of Data bases with Sql server", "Sql.jpeg", "Data Base", 1 },
+                    { 3, 1, new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this course you will learn all concepts of how to query data using linq library", "Linq.jpeg", "Linq", 1 },
+                    { 4, 1, new DateTime(2024, 10, 22, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this course you will learn all concepts of how to conect with database from vs and building database with c#", "EF.jpeg", "EF core", 1 },
+                    { 5, 2, new DateTime(2024, 10, 13, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this course you will learn all concepts of how to build the skeleton of the page ", "Html.jpeg", "HTML", 3 },
+                    { 6, 2, new DateTime(2024, 10, 16, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this course you will learn all concepts of how to style page elements", "Css.jpeg", "CSS", 3 },
+                    { 7, 2, new DateTime(2024, 10, 22, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this course you will learn all concepts of how to make the page dynamic ", "Js.png", "JS", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "lesson",
+                columns: new[] { "CoursesId", "Lesson_Id", "CreationDate", "Description", "Title", "Video" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified), "introduction to c#", "introduction", "https://youtu.be/DZHohhJDjHk?si=ntxasWbbdiUK8vwu" },
+                    { 1, 2, new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified), "Learn the basic syntax of lthe language ", "Language Syntax", "https://youtu.be/ArvFgo9wM3M?si=CuVFmK8AZJssrLer" },
+                    { 1, 3, new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified), "we will learn how to write to console and display it", "Writen to console", "https://youtu.be/xP1vT4Qpw1w?si=0S-5WCbTDDhZALhl" },
+                    { 1, 4, new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified), "in this lesson you will learn the kind of variables , his scopes and how to use it ", "variables", "https://youtu.be/Mc74_yTAK3Y?si=7b8GuFSXXaVfe4sA" },
+                    { 1, 5, new DateTime(2024, 10, 12, 14, 30, 0, 0, DateTimeKind.Unspecified), "you will learn the kinds of data types and the using of it ", "Data Types", "https://youtu.be/TchQzL53Fs0?si=cPNVtPtShT9WxK5S" }
                 });
 
             migrationBuilder.CreateIndex(

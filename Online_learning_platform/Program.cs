@@ -35,10 +35,13 @@ namespace Online_learning_platform
             builder.Services.AddScoped
             <lessonRepository>();
 
-            builder.Services.AddIdentity
-             <ApplicationUser, IdentityRole>()
-               .AddRoles<IdentityRole>()
-           .AddEntityFrameworkStores<ApplicationDbContext>();
+            // Add Identity services
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                 .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
@@ -57,20 +60,23 @@ namespace Online_learning_platform
 
             app.UseAuthorization();
 
-            
-            
-                app.MapControllerRoute(
-                  name: "areas",
-                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
-       
+
+
+            app.MapControllerRoute(
+              name: "areas",
+              pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            );
+
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Account}/{action=Register}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
         
-
+          
             app.Run();
         }
+
     }
+   
+
 }

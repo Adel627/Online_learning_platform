@@ -23,24 +23,13 @@ namespace Online_learning_platform.Areas.Admin.Controllers
             _host = host;
        
         }
+
         public IActionResult Index()
         {        
-            var categories = _courseRepository.GetCourse_categories();
-            var trainers = _courseRepository.GetCourse_Trainers();
-
             var courses = _courseRepository.GetAll();
-
-            var model = new CourseViewModel
-            {
-                Categories_list =categories,
-                trainers_list= trainers,
-                courses_list= courses
-                
-            };
-
-
-            return View(model);
+            return View(courses);
         }
+
         public IActionResult Create()
         {
             var categories = _courseRepository.Get_SelectionListcategories();
@@ -82,9 +71,9 @@ namespace Online_learning_platform.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int CoursesId)
         {
-            var coursefound = _courseRepository.FindById(id);
+            var coursefound = _courseRepository.FindById(CoursesId);
             return View(coursefound);
         }
         [HttpPost]

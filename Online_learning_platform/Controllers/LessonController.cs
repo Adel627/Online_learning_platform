@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Online_learning_platform.Data;
 using Online_learning_platform.Models;
 using Online_learning_platform.Repositores;
 
 namespace Online_learning_platform.Controllers
 {
+    [Authorize]
     public class LessonController : Controller
     {
         private readonly lessonRepository _LessonRepository;
