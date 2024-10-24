@@ -24,6 +24,7 @@ namespace Online_learning_platform.Controllers
                return View();
         }
 
+
         public IActionResult Privacy()
         {
             return View();

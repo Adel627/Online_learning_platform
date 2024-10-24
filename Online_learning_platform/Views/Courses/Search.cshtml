@@ -1,12 +1,8 @@
-﻿@model List<Courses>
+﻿@model IEnumerable<Courses>
 
-    <!-- Courses Section -->
-    <section class="container courses-title">
-        <div class="row d-flex align-items-center justify-content-between mr-5">
-            <div class="col-auto">
-                <h1>Courses</h1>
-            </div>
-        </div>
+<h2>Search Results</h2>
+
+<ul>
     <div class="row">
         <!-- Loop through your items -->
         @foreach (var item in Model)
@@ -21,10 +17,6 @@
                             <h1>@item.Name</h1>
                             <h3 class="mb-1">Instructor: @item.Trainer.Name</h3>
                             <h5 class="mb-1">Creation Date: @item.CreationDate</h5>
-                            <form asp-controller="MyCourses" asp-action="AddToMyCourses" method="post">
-                                <input type="hidden" name="courseId" value="@item.CoursesId" />
-                                <button type="submit" class="start-btn mt-3">Add to My Courses</button>
-                            </form>
 
                         </div>
                     </a>
@@ -32,7 +24,9 @@
             </div>
         }
     </div>
-    </section>
+</ul>
 
-
-   
+@if (!Model.Any())
+{
+    <p>No courses found.</p>
+}
