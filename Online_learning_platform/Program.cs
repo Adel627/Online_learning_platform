@@ -34,6 +34,7 @@ namespace Online_learning_platform
            <CategoryRepository>();
             builder.Services.AddScoped
             <lessonRepository>();
+         
 
             // Add Identity services
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
